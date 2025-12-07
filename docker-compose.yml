@@ -1,0 +1,38 @@
+services:
+  frontend:
+    build: ./frontend
+    ports: 
+      - "8081:80"
+    restart: on-failure
+    networks:
+      - internet
+  database:
+    image: "postgres:latest"
+    env_file: .env.db
+    restart: on-failure
+    volumes:
+      - database_data:/var/lib/postgresql
+    networks:
+      - internal-network
+  backend:
+    build: ./backend
+    ports:
+      - "4000:3000"
+    env_file: .env.backend
+    depends_on:
+      - database
+    restart: on-failure
+    networks:
+      - internal-network
+      - internet
+
+volumes:
+  database_data:
+    
+networks:
+  internal-network:
+    driver: bridge
+    internal: true
+  internet:
+    driver: bridge
+
