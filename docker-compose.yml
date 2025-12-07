@@ -8,6 +8,8 @@ services:
       - internet
   database:
     image: "postgres:latest"
+    environment:
+      - PGDATA=${POSTGRES_PGDATA}
     env_file: .env.db
     restart: on-failure
     volumes:
@@ -19,8 +21,6 @@ services:
     ports:
       - "4000:3000"
     env_file: .env.backend
-    environment:
-      - PGDATA=${POSTGRES_PGDATA}
     depends_on:
       - database
     restart: on-failure
