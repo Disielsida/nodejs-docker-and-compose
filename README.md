@@ -1,3 +1,12 @@
 # Докеризация приложения
 
-Перед тем как приступить к выполнению проектной работы разместите в репозитории исходный код фронтенд и бэкенд частей сервиса КупиПодариДай, реализованного вами ранее. 
+## Ссылки
+
+— IP aдрес: 
+```
+158.160.211.203
+```
+
+— Frontend: https://podaridaydisielsida.nomorepartiessbs.ru
+
+— Backend: https://api.podaridaydisielsida.nomorepartiessbs.ru
