@@ -12,6 +12,7 @@ services:
       - PGDATA=/var/lib/postgresql/18/docker 
     env_file: .env.db
     restart: on-failure
+    mem_limit: 512m
     volumes:
       - database_data:/var/lib/postgresql
     networks:
@@ -21,6 +22,7 @@ services:
     ports:
       - "4000:3000"
     env_file: .env.backend
+    mem_limit: 512m
     depends_on:
       - database
     restart: on-failure
