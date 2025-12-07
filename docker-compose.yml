@@ -9,7 +9,7 @@ services:
   database:
     image: "postgres:latest"
     environment:
-      - PGDATA=${POSTGRES_PGDATA}
+      - PGDATA=/var/lib/postgresql/18/docker 
     env_file: .env.db
     restart: on-failure
     volumes:
